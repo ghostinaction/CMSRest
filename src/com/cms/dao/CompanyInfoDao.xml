@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cms.dao.CompanyInfoDao">
+    <!-- 返回一个list的写法 -->
+    <resultMap type="com.cms.entity.CompanyInfo" id="CompanyInfoMap">
+		<result column="tech_email" property="techEmail"/>
+		<result column="bus_email" property="busEmail"/>
+		<result column="qqchat" property="qqChat" />
+	</resultMap>
+    <select id="getInfo"  resultMap="CompanyInfoMap" >
+        select * from cpyinfo
+    </select> 
+    <update id="updateInfo" parameterType="com.cms.entity.CompanyInfo">
+	  update cpyinfo set
+	  	address = #{address},
+	  	phone = #{phone},
+	  	chuanzheng = #{chuanzheng},
+	  	people = #{people},
+	  	bus_email = #{busEmail},
+	  	tech_email = #{techEmail},
+	  	page = #{page},
+	  	business = #{business},
+	  	qqchat = #{qqChat}
+	  	where id = #{id}
+	</update>
+</mapper>

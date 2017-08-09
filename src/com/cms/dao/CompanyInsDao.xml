@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cms.dao.CompanyInsDao">
+	<resultMap type="com.cms.entity.CompanyIns" id="CompanyInsMap">
+		<id property="id" column="id" />
+		<result property="instType" column="inst_type" />
+		<result property="content" column="content" />		
+	</resultMap>
+	
+	<sql id="query_user_where">  
+	    <if test="id!=null and id!=''">
+		        	and id=#{id}
+		 </if>
+ 	</sql>  
+	
+    <!-- 返回一个list的写法 -->
+    <select id="getList"  resultMap="CompanyInsMap" >
+    	
+        select * from cpyinst 
+        <where>
+	        <include refid="query_user_where"></include> 
+	     </where>
+    </select> 
+    <select id="getOneById" resultMap="CompanyInsMap">
+    	select * from cpyinst where id=#{id}
+    </select>
+    <select id="getListByParam" resultMap="CompanyInsMap">
+    	select * from cpyinst where id
+    	<foreach collection="array" index="index" item="item" open="in (" separator="," close=")">
+    	#{item}
+    	</foreach> 
+    </select>
+    
+    <select id="getShortInfo" resultMap="CompanyInsMap">
+    	select * from cpyinst where inst_type = '公司简短介绍'
+    </select>
+    <update id="updateCompanyIns" parameterType="com.cms.entity.CompanyIns">
+	  update cpyinst set
+	    inst_type = #{instType},
+	    content = #{content}
+	  	where id = #{id}
+	</update>
+</mapper>

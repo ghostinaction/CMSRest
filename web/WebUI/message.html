@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>在线留言</title>
+    <link href="css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="css/web.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="js/jquery-1.2.6.min.js"></script>
+</head>
+
+<body>
+<div data-html="components/header/header.html | js">
+    <!--头部-->
+</div>
+<div class="clear"></div>
+<div class="main">
+    <div id="left">
+        <div class="menu">
+            <h2>关于我们</h2>
+            <ul class="part">
+                <li><a href="about.html">公司简介</a></li>
+                <li><a href="about.html">企业资质</a></li>
+                <li><a href="about.html">企业文化</a></li>
+                <li><a href="about.html">客户资源</a></li>
+                <li><a href="about.html">合作伙伴</a></li>
+            </ul>
+        </div>
+        <!--menu-->
+        <div data-html="components/companyinfo/companyinfo.html | js">
+
+        </div>
+    </div>
+    <!--left-->
+    <div id="right">
+        <div class="position"><span>您的位置：<a href="index.html">首页&nbsp;></a>在线留言</span>在线留言</div>
+        <div class="web_box">
+            <div class="content">
+                <dl class="bottom_e">
+                    <dt>免费提交留言</dt>
+                    <dd class="contents_m">
+                        <form method="post" id="from">
+                            <p>
+                                <label class="b"><font color="red"></font>称呼：</label>
+                                <input type="text" name="nickName" class="longtxt" value="" maxlength="10"/></p>
+
+                            <p>
+                                <label class="e"><font color="red"></font>E_Mail：</label>
+                                <input type="text" name="email" class="longtxt" value="" maxlength="25"/></p>
+
+                            <p>
+                                <label><font color="red">*</font>联系电话：</label>
+                                <input required type="text" name="phone" class="longtxt" value="" maxlength="11"/>
+                                <strong>(请填写您的手机或者座机号码)</strong>
+                            </p>
+
+                            <p>
+                                <label>企业名称：</label>
+                                <input type="text" name="companyName" class="longtxt" value="" maxlength="30"/>
+                            </p>
+
+                            <p>
+                                <label>公司地址：</label>
+                                <input type="text" name="companyAddress" class="longtxt" value="" maxlength="30"/>
+                            </p>
+
+                            <p>
+                                <label class="y"><font color="red">*</font>验证码：</label>
+                                <input required maxlength="4" name="captcha" size="8"/>
+                                <img id="codeImage" align="absbottom" alt="看不清，换一个" style="height: 26px;padding:0px 0px 0px 2px ;cursor:pointer"/>
+                                <strong id="codeMsg" style="color:red;display: none">验证码错误</strong>
+                            </p>
+
+                            <p>
+                                <label class="b"><font color="red">*</font>标题：</label>
+                                <input required type="text" name="title" class="longtxt" value="" maxlength="30"/>
+                            </p>
+
+                            <p id="textarea"><label class="n"><font color="red">*</font>内容：</label>
+                                <textarea rows="4" cols="50" name="content" required>
+</textarea>
+                            </p>
+
+                            <div class="sbts"><input name="" type="submit" value="提交"/>
+                                <input name="" type="reset" value="重置"/></div>
+                        </form>
+                    </dd>
+                </dl>
+            </div>
+            <!--content end-->
+        </div>
+    </div>
+</div>
+<script>
+
+</script>
+<div data-html="components/footer/footer.html | js">
+    <!--底部-->
+</div>
+<script src="js/plugs/require.min.js" data-main="js/ajax/message.js"></script>
+</body>
+</html>
